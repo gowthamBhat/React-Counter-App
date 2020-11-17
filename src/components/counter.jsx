@@ -5,32 +5,32 @@ class Counter extends Component {
         super(props)
 
         this.state = {
-            count: 0
+            value: this.props.value
         }
     }
     formatter = () => {
-        const { count } = this.state;
-        return count === 0 ? "Zero" : count;     //count 0 adre Zero antha return madathe illa count value
+        const { value } = this.state;
+        return value === 0 ? "Zero" : value;     //value 0 adre Zero antha return madathe illa value value
     }
-    badgeColorFormatter(count) {
+    badgeColorFormatter(value) {
         let classes = "badge m-2 badge-";
-        classes += count === 0 ? "warning" : "primary";
-        return classes;                          // zero count idre yellow color barathe illa blue
+        classes += value === 0 ? "warning" : "primary";
+        return classes;                          // zero value idre yellow color barathe illa blue
     }
     incrementHandler = () => {
-        this.setState({ count: this.state.count + 1 }) //increment the count value, also can pass a arrow function in setState
+        this.setState({ value: this.state.value + 1 }) //increment the value value, also can pass a arrow function in setState
     }
     render() {
-        const { count } = this.state;
-        let classes = this.badgeColorFormatter(count);  // zero count idre yellow color barathe illa blue
+        const { value } = this.state;
+        let classes = this.badgeColorFormatter(value);  // zero value idre yellow color barathe illa blue
         return (
-            <>
+            <div className="increment-label">
                 {/* using the css inline
                 <h3 style={{ color: "blue" }}>using css inline</h3> */}
 
                 <span className={classes}>{this.formatter()}</span>
                 <button className="btn btn-secondary btn-sm" onClick={this.incrementHandler}>increment</button>
-            </>
+            </div>
         );
     } //onClick alli this.increment call mado badlu arrow function call madbodu, argumnet pass madod idre help agathe
 

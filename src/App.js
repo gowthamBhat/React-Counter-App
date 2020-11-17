@@ -13,15 +13,24 @@ class App extends Component {
       ]
     }
   }
+  deleteHandler = (val) => {
+
+
+    const counter = this.state.count.filter(x => x.id !== val);
+    this.setState({ count: counter })
+
+  }
 
   render() {
     const { count } = this.state
     return (
       <div>
         {count.map((x) => {
+
           return (
 
-            <Counter key={x.id} value={x.value} />
+            <Counter key={x.id} count={x} onDel={this.deleteHandler} />
+
           )
         }
         )}
@@ -30,4 +39,5 @@ class App extends Component {
     )
   }
 }
+// passing the deleteHandler method as a prop so can child component can call the root component
 export default App

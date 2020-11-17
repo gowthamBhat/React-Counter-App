@@ -5,7 +5,7 @@ class Counter extends Component {
         super(props)
 
         this.state = {
-            value: this.props.value
+            value: this.props.count.value
         }
     }
     formatter = () => {
@@ -30,10 +30,14 @@ class Counter extends Component {
 
                 <span className={classes}>{this.formatter()}</span>
                 <button className="btn btn-secondary btn-sm" onClick={this.incrementHandler}>increment</button>
+                <button className="btn btn-danger btn-sm m-2" onClick={() => this.props.onDel(this.props.count.id)}>Delete</button>
             </div>
         );
-    } //onClick alli this.increment call mado badlu arrow function call madbodu, argumnet pass madod idre help agathe
+    }
+    //this.props.onDel will call the props method and pass the id of the count
+    //onClick alli this.increment call mado badlu arrow function call madbodu, argumnet pass madod idre help agathe
 
 
 }
 export default Counter;
+//props are immutable

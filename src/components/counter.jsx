@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 
 class Counter extends Component {
-    constructor(props) {
-        super(props)
+    // constructor(props) {
+    //     super(props)
 
-        this.state = {
-            value: this.props.count.value
-        }
-    }
+    //     this.state = {
+    //         value: this.props.count.value
+    //     }
+    // }
     formatter = () => {
-        const { value } = this.state;
+        const { value } = this.props.count;
         return value === 0 ? "Zero" : value;     //value 0 adre Zero antha return madathe illa value value
     }
     badgeColorFormatter(value) {
@@ -17,11 +17,9 @@ class Counter extends Component {
         classes += value === 0 ? "warning" : "primary";
         return classes;                          // zero value idre yellow color barathe illa blue
     }
-    incrementHandler = () => {
-        this.setState({ value: this.state.value + 1 }) //increment the value value, also can pass a arrow function in setState
-    }
+
     render() {
-        const { value } = this.state;
+        const { value } = this.props.count;
         let classes = this.badgeColorFormatter(value);  // zero value idre yellow color barathe illa blue
         return (
             <div className="increment-label">
@@ -29,7 +27,7 @@ class Counter extends Component {
                 <h3 style={{ color: "blue" }}>using css inline</h3> */}
 
                 <span className={classes}>{this.formatter()}</span>
-                <button className="btn btn-secondary btn-sm" onClick={this.incrementHandler}>increment</button>
+                <button className="btn btn-secondary btn-sm" onClick={() => this.props.incrementHandle(this.props.count)}>increment</button>
                 <button className="btn btn-danger btn-sm m-2" onClick={() => this.props.onDel(this.props.count.id)}>Delete</button>
             </div>
         );

@@ -21,15 +21,36 @@ class App extends Component {
 
   }
 
+
+  incrementHandler = (x) => {
+    const count = this.state.count.map((value) => {
+      if (value.id === x.id)
+        value.value++
+
+      return value
+    })
+    this.setState({ count })
+  }
+  resetHandler = () => {
+    const count = this.state.count.map((x) => {
+      x.value = 0
+      return x;
+    })
+    this.setState({ count })
+  }
+
   render() {
     const { count } = this.state
     return (
       <div>
+        <button
+          className="btn btn-primary btn-sm m-2"
+          onClick={this.resetHandler} > Reset</button>
         {count.map((x) => {
 
           return (
 
-            <Counter key={x.id} count={x} onDel={this.deleteHandler} />
+            <Counter key={x.id} count={x} incrementHandle={this.incrementHandler} onDel={this.deleteHandler} />
 
           )
         }

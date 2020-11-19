@@ -12,6 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.increment-label{
-padding: 5px 5px;
+/* .increment-label{
+padding: 10px 10px;
+}
+.count-label{
+  margin-left: 250px;
+} */
+.buttons{
+  width: 35px;
 }

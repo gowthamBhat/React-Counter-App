@@ -22,13 +22,21 @@ class Counter extends Component {
         const { value } = this.props.count;
         let classes = this.badgeColorFormatter(value);  // zero value idre yellow color barathe illa blue
         return (
-            <div className="increment-label">
+            <div className="increment-label row">
                 {/* using the css inline
                 <h3 style={{ color: "blue" }}>using css inline</h3> */}
+                <div className="col-1">
+                    <span className={classes}>{this.formatter()}</span>
+                </div>
+                <div className="col">
+                    <button className="buttons btn btn-dark btn-sm m-2" onClick={() => this.props.incrementHandle(this.props.count)}>+</button>
+                    <button className="buttons btn btn-dark btn-sm m-2"
+                        onClick={() => this.props.decrementHandle(this.props.count)}
+                        disabled={this.props.count.value === 0 ? "disabled" : ""}>-</button>
+                    <button className="buttons btn btn-danger btn-sm " onClick={() => this.props.onDel(this.props.count.id)}>X</button>
+                </div>
 
-                <span className={classes}>{this.formatter()}</span>
-                <button className="btn btn-secondary btn-sm" onClick={() => this.props.incrementHandle(this.props.count)}>increment</button>
-                <button className="btn btn-danger btn-sm m-2" onClick={() => this.props.onDel(this.props.count.id)}>Delete</button>
+
             </div>
         );
     }

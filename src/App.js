@@ -11,6 +11,7 @@ class App extends Component {
       { id: 4, value: 0 }
     ]
   }
+  //* Child components are stateless and dependent on parent state and get get values via props
 
   deleteHandler = (val) => {
 
@@ -19,6 +20,7 @@ class App extends Component {
     this.setState({ count: counter })
 
   }
+
 
 
   incrementHandler = (x) => {
@@ -47,11 +49,7 @@ class App extends Component {
     this.setState({ count })
   }
 
-  // numberOfCounters = () => {
-  //   let { count } = this.state;
-  //   count = count.length;
-  //   return count;
-  // }
+  //* Handlers are used in child component and they are called from child component
 
 
 

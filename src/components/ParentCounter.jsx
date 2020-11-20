@@ -5,6 +5,7 @@ class ParentCounter extends Component {
 
     render() {
         const { count } = this.props
+        //throug MAP each component is getting diffrent counter id and values
         return (
             <div className="starter-template">
 
